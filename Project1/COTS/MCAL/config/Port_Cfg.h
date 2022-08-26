@@ -3,7 +3,7 @@
  * @brief This file contains MCU port configuration
  *
  * @author Abanoub Salah
- * @date August 11, 2022
+ * @date August 10, 2022
  * *********************************************************************************************************************/
  
 #ifndef _PORT_CFG_H
@@ -16,6 +16,23 @@
 /**********************************************************************************************************************
  *  GLOBAL CONSTANT MACROS
  *********************************************************************************************************************/
+
+/* Port pin IDs */
+#define PORT_PIN_MODE_ADC				(uint8)0
+#define PORT_PIN_MODE_DIO				(uint8)1
+#define PORT_PIN_MODE_UART				(uint8)2
+#define PORT_PIN_MODE_USB				(uint8)3
+#define PORT_PIN_MODE_I2C				(uint8)4
+#define PORT_PIN_MODE_CAN				(uint8)5
+#define PORT_PIN_MODE_PWM				(uint8)6
+#define PORT_PIN_MODE_SSI				(uint8)7
+#define PORT_PIN_MODE_QEI				(uint8)8
+#define PORT_PIN_MODE_GPT				(uint8)9
+#define PORT_PIN_MODE_NMI				(uint8)10
+#define PORT_PIN_MODE_ANALOG_COMP		(uint8)11
+#define PORT_PIN_MODE_CORE				(uint8)12
+
+#define PORT_PIN_CFG_SIZE        		(7)
 
 /**********************************************************************************************************************
  *  GLOBAL FUNCTION MACROS

@@ -10,6 +10,8 @@
  *  INCLUDES
  *********************************************************************************************************************/
 
+#include "Port.h"
+
 /**********************************************************************************************************************
 *  LOCAL MACROS CONSTANT\FUNCTION
 *********************************************************************************************************************/
@@ -21,6 +23,17 @@
 /**********************************************************************************************************************
  *  GLOBAL DATA
  *********************************************************************************************************************/
+
+/* Defining used GPIO ports as {PinMode, PinDirection, PinAttach, PinCurrent} */
+const Port_ConfigType Port_Configuration[PORT_PIN_CFG_SIZE] = {
+	{PORT_PA0, PORT_PIN_MODE_UART, PORT_DIR_INPUT, PORT_ATTACH_DEFAULT, PORT_PIN_8mA},
+	{PORT_PA1, PORT_PIN_MODE_DIO, PORT_DIR_INPUT, PORT_ATTACH_DEFAULT, PORT_PIN_2mA},
+	{PORT_PA2, PORT_PIN_MODE_DIO, PORT_DIR_OUTPUT, PORT_ATTACH_PULLDOWN, PORT_PIN_4mA},
+	{PORT_PA3, PORT_PIN_MODE_DIO, PORT_DIR_OUTPUT, PORT_ATTACH_PULLUP, PORT_PIN_2mA},
+	{PORT_PF1, PORT_PIN_MODE_DIO, PORT_DIR_OUTPUT, PORT_ATTACH_DEFAULT, PORT_PIN_2mA},
+	{PORT_PF0, PORT_PIN_MODE_DIO, PORT_DIR_INPUT, PORT_ATTACH_PULLDOWN, PORT_PIN_NA},
+	{PORT_PB4, PORT_PIN_MODE_CAN, PORT_DIR_INPUT, PORT_ATTACH_OPENDRAIN, PORT_PIN_NA},
+};
 
 /**********************************************************************************************************************
  *  LOCAL FUNCTION PROTOTYPES
