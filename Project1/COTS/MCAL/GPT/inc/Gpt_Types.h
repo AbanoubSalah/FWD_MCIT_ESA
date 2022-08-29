@@ -13,6 +13,8 @@
  * INCLUDES
  *********************************************************************************************************************/
 
+#include "Std_Types.h"
+
 /**********************************************************************************************************************
  *  GLOBAL CONSTANT MACROS
  *********************************************************************************************************************/
@@ -24,6 +26,48 @@
 /**********************************************************************************************************************
  *  GLOBAL DATA TYPES AND STRUCTURES
  *********************************************************************************************************************/
+
+typedef enum
+{
+    GPT_PREDEF_TIMER_1US_16BIT,
+    GPT_PREDEF_TIMER_1US_24BIT,
+	GPT_PREDEF_TIMER_1US_32BIT,
+	GPT_PREDEF_TIMER_100US_32BIT,
+}Gpt_PredefTimerType;
+
+typedef enum
+{
+	GPT_CH_MODE_ONESHOT = 1,
+    GPT_CH_MODE_CONTINUOUS,
+}Gpt_ChannelMode;
+
+typedef enum
+{
+	Gpt_Channel_Timer0,
+	Gpt_Channel_Timer1,
+	Gpt_Channel_Timer2,
+	Gpt_Channel_Timer3,
+	Gpt_Channel_Timer4,
+	Gpt_Channel_Timer5,
+	Gpt_Channel_WTimer0,
+	Gpt_Channel_WTimer1,
+	Gpt_Channel_WTimer2,
+	Gpt_Channel_WTimer3,
+	Gpt_Channel_WTimer4,
+	Gpt_Channel_WTimer5,
+}Gpt_ChannelType;
+
+
+typedef uint32 Gpt_ValueType;
+
+typedef struct 
+{
+	Gpt_ChannelType GptChannelid;
+	uint32 GptChannelTickFrequency;
+	uint32 GptChannelTickValueMax;
+	Gpt_ChannelMode GptChannelMode;
+	void (*GptNotiflcation)(void);
+}Gpt_ConfigType;
 
 /**********************************************************************************************************************
  *  GLOBAL DATA PROTOTYPES

@@ -18,6 +18,25 @@
  *  GLOBAL CONSTANT MACROS
  *********************************************************************************************************************/
 
+#define GPT_USE_PREDEF_TIMERS						(1)
+
+#if (GPT_USE_PREDEF_TIMERS == 1)
+#define GPT_PREDEF_1US_16BIT						(1)
+#define GPT_PREDEF_1US_24BIT						(0)
+#define GPT_PREDEF_1US_32BIT						(0)
+#define GPT_PREDEF_100US_32BIT					(1)
+#if	(((GPT_PREDEF_1US_16BIT == 1) || (GPT_PREDEF_1US_24BIT == 1) || (GPT_PREDEF_1US_32BIT == 1)) && (GPT_PREDEF_100US_32BIT == 1))
+#define GPT_USE_PREDEF_TIMERS_USED_COUNT				(2)
+#elif ((GPT_PREDEF_1US_16BIT == 1) || (GPT_PREDEF_1US_24BIT == 1) || (GPT_PREDEF_1US_32BIT == 1) || (GPT_PREDEF_100US_32BIT == 1))
+#define GPT_USE_PREDEF_TIMERS_USED_COUNT				(1)
+#else
+#define GPT_USE_PREDEF_TIMERS_USED_COUNT				(0)
+#endif
+#endif
+
+#define GPT_USER_DEFINED_TIMERS							(4)
+#define Gpt_CFG_SIZE        							(GPT_USER_DEFINED_TIMERS + GPT_USE_PREDEF_TIMERS_USED_COUNT)
+
 /**********************************************************************************************************************
  *  GLOBAL FUNCTION MACROS
  *********************************************************************************************************************/
