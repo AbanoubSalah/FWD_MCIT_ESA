@@ -10,6 +10,8 @@
  *  INCLUDES
  *********************************************************************************************************************/
 
+#include "Blink.h"
+
 /**********************************************************************************************************************
 *  LOCAL MACROS CONSTANT\FUNCTION
 *********************************************************************************************************************/	
@@ -17,6 +19,8 @@
 /**********************************************************************************************************************
  *  LOCAL DATA 
  *********************************************************************************************************************/
+
+static Blink_Status status = Blink_On;
 
 /**********************************************************************************************************************
  *  GLOBAL DATA
@@ -33,6 +37,54 @@
 /**********************************************************************************************************************
  *  GLOBAL FUNCTIONS
  *********************************************************************************************************************/
+
+void Blink_Cbk(void)
+{
+#if (1 == USE_SYSTICK)
+	Systick_StopTimer();
+#elif (1 == USE_GPT)
+	Gpt_StopTimer(TIMER_CHANNEL_USED);
+#endif
+	Blink_Update();
+}
+
+void Blink_Init(void)
+{
+	IntCtrl_init();
+#if (1 == USE_GPT)
+	Port_Init(Port_Configuration);
+	Gpt_Init(Gpt_Configuration);
+#elif (1 == USE_SYSTICK)
+	Systick_StopTimer();
+	Systick_EnableNotification();
+#endif
+	Blink_Update();
+}
+
+void Blink_Update(void)
+{
+	if(Blink_On == status)
+	{
+		status = Blink_Off;
+		DIO_FlipChannel(DIO_CHANNEL_USED);
+
+#if (1 == USE_SYSTICK)
+		Systick_StartTimer(OFF_PERIOD);
+#elif (1 == USE_GPT)
+		Gpt_StartTimer(TIMER_CHANNEL_USED, OFF_PERIOD);	
+#endif
+	}
+	else if(Blink_Off == status)
+	{
+		status = Blink_On;
+
+#if (1 == USE_SYSTICK)
+		Systick_StartTimer(ON_PERIOD);
+#elif (1 == USE_GPT)
+		Gpt_StartTimer(TIMER_CHANNEL_USED, ON_PERIOD);
+#endif
+	}
+}
 
 /**********************************************************************************************************************
  *  END OF FILE: Blink.c
