@@ -20,6 +20,15 @@
  *  GLOBAL CONSTANT MACROS
  *********************************************************************************************************************/
 
+/* Number of priority groups and sub-groups */
+/* Valid groups are 0, 2, 4, 8 */
+#define configInterruptGroup					(2)
+#define configInterruptSubGroup					(8 - configInterruptGroup)
+
+/*  Number of configured system interrupts and MCU peripherals interrupts */
+#define INTCTRL_SYS_EXCEPTIONS_COUNT    		(7)
+#define INTCTRL_INTERRUPTS_COUNT        		(2)
+
 /**********************************************************************************************************************
  *  GLOBAL FUNCTION MACROS
  *********************************************************************************************************************/

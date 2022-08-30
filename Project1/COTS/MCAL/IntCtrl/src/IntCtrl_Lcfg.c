@@ -10,6 +10,9 @@
  *  INCLUDES
  *********************************************************************************************************************/
 
+#include "Std_Types.h"
+#include "IntCtrl.h"
+
 /**********************************************************************************************************************
 *  LOCAL MACROS CONSTANT\FUNCTION
 *********************************************************************************************************************/
@@ -21,6 +24,24 @@
 /**********************************************************************************************************************
  *  GLOBAL DATA
  *********************************************************************************************************************/
+
+const IntCtrl_InterruptCfgType  IntCtrl_interruptsCfg[INTCTRL_INTERRUPTS_COUNT] = 
+{
+    /* Interrupt number, group, sub group */
+    {INTCTRL_WDT0,        	1, 0},
+    {INTCTRL_TIMER0A,       1, 1}
+};
+
+const IntCtrl_ExceptionCfgType  IntCtrl_exceptionsCfg[INTCTRL_SYS_EXCEPTIONS_COUNT] = {
+    /* Exception number, group, sub group */
+    {INTCTRL_MemManage,		1, 0},
+    {INTCTRL_BusFault,		1, 0},
+    {INTCTRL_UsageFault,    1, 0},
+    {INTCTRL_SVC,           1, 0},
+    {INTCTRL_DebugMon,     	1, 0},
+    {INTCTRL_PendSV,        1, 0},
+    {INTCTRL_SysTick,       1, 0}
+};
 
 /**********************************************************************************************************************
  *  LOCAL FUNCTION PROTOTYPES
