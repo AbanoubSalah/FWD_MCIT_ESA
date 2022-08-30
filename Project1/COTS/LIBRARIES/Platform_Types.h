@@ -1,44 +1,37 @@
-/**********************************************************************************************************************
+/**
  * @file Platform_Types.h
  * @brief This file is the Data types definition for ARM cortex m4 processor
  *
  * @author Abanoub Salah
  * @date August 10, 2022
- * *********************************************************************************************************************/
+ *
+ */
 
 #ifndef _PLATFORM_TYPES_H
 #define _PLATFORM_TYPES_H
 
-/**********************************************************************************************************************
- * INCLUDES
- *********************************************************************************************************************/
- 
 #include <stdbool.h>
 #include <stdint.h>
 
-/**********************************************************************************************************************
- *  GLOBAL CONSTANT MACROS
- *********************************************************************************************************************/
- 
-#ifndef FALSE
-#define FALSE	(boolean)false
-#endif
+/*- CONSTANTS ----------------------------------------------*/
+#define WORD_LENGTH_BITS         (32u)
+#define WORD_LENGTH_BYTES        (4u)
+#define MSB_FIRST                (0u)    /* big endian bit ordering */
+#define LSB_FIRST                (1u)    /* little endian bit ordering */
+
+#define HIGH_BYTE_FIRST          (0u)    /* big endian byte ordering */
+#define LOW_BYTE_FIRST           (1u)    /* little endian byte ordering */
 
 #ifndef TRUE
-#define TRUE	(boolean)true
+   #define TRUE                  (1u)
 #endif
 
-/**********************************************************************************************************************
- *  GLOBAL FUNCTION MACROS
- *********************************************************************************************************************/
- 
-/**********************************************************************************************************************
- *  GLOBAL DATA TYPES AND STRUCTURES
- *********************************************************************************************************************/
+#ifndef FALSE
+   #define FALSE                 (0u)
+#endif
 
-/**********************************************************************************************************************
- *  GLOBAL DATA PROTOTYPES
- *********************************************************************************************************************/
+#define CPU_BIT_ORDER            LSB_FIRST        /*little endian bit ordering*/
+#define CPU_BYTE_ORDER           LOW_BYTE_FIRST   /*little endian byte ordering*/
 
 typedef _Bool               boolean;
 typedef int8_t              sint8;
@@ -52,24 +45,21 @@ typedef int64_t             sint64;
 typedef uint64_t            uint64;
 
 
-typedef volatile int8_t     vint8_t;
-typedef volatile uint8_t    vuint8_t;
+typedef volatile int8_t     vint8;
+typedef volatile uint8_t    vuint8;
 
-typedef volatile int16_t    vint16_t;
-typedef volatile uint16_t   vuint16_t;
+typedef volatile int16_t    vint16;
+typedef volatile uint16_t   vuint16;
 
-typedef volatile int32_t    vint32_t;
-typedef volatile uint32_t   vuint32_t;
+typedef volatile int32_t    vint32;
+typedef volatile uint32_t   vuint32;
 
-typedef volatile int64_t    vint64_t;
-typedef volatile uint64_t   vuint64_t;
-
-/**********************************************************************************************************************
- *  GLOBAL FUNCTION PROTOTYPES
- *********************************************************************************************************************/
+typedef volatile int64_t    vint64;
+typedef volatile uint64_t   vuint64;
 
 #endif  /* _PLATFORM_TYPES_H */
 
 /**********************************************************************************************************************
  *  END OF FILE: Platform_Types.h
  *********************************************************************************************************************/
+

@@ -99,7 +99,7 @@ void Gpt_Init(const Gpt_ConfigType Gpt_Config[])
 		
 		/* Disabling time-out interrupt by default */
 		GET_BITBAND_ALIAS_ADDRESS((GptBaseAddress[Gpt_Config[loopIndex].GptChannelid] + GPTMIMR_OFFSET), GPTMIMR_TATOIM_Bit) = STD_LOW;
-		
+#if (GPT_USE_PREDEF_TIMERS == 1)
 		// Only predefined timers can run
 		if(((Gpt_Channel_WTimer4 == Gpt_Config[loopIndex].GptChannelid) || (Gpt_Channel_WTimer5 == Gpt_Config[loopIndex].GptChannelid)) && (1 == GPT_USE_PREDEF_TIMERS))
 		{
@@ -120,6 +120,7 @@ void Gpt_Init(const Gpt_ConfigType Gpt_Config[])
 			/* Enabling timer */
 			GET_BITBAND_ALIAS_ADDRESS((GptBaseAddress[Gpt_Config[loopIndex].GptChannelid] + GPTMCTL_OFFSET), GPTMCTL_TAEN_BIT) = STD_HIGH;
 		}
+#endif
 	}
 }
 

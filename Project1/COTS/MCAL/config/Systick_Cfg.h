@@ -1,14 +1,14 @@
 /**********************************************************************************************************************
- * @file Gpt_Cfg.h
- * @brief This file is the header file for Gpt configuration for TI microcontroller TM4C123GH6PM
+ * @file Systick_Cfg.h
+ * @brief This file is the header file for systick configuration for TI microcontroller TM4C123GH6PM
  *
  * @author Abanoub Salah
  * @date August 10, 2022
  * *********************************************************************************************************************/
  
  
-#ifndef _GPT_CFG_H
-#define _GPT_CFG_H
+#ifndef _SYSTICK_CFG_H
+#define _SYSTICK_CFG_H
 
 /**********************************************************************************************************************
  * INCLUDES
@@ -18,24 +18,7 @@
  *  GLOBAL CONSTANT MACROS
  *********************************************************************************************************************/
 
-#define GPT_USE_PREDEF_TIMERS						(1)
-
-#if (GPT_USE_PREDEF_TIMERS == 1)
-#define GPT_PREDEF_1US_16BIT						(1)
-#define GPT_PREDEF_1US_24BIT						(0)
-#define GPT_PREDEF_1US_32BIT						(0)
-#define GPT_PREDEF_100US_32BIT					(1)
-#if	(((GPT_PREDEF_1US_16BIT == 1) || (GPT_PREDEF_1US_24BIT == 1) || (GPT_PREDEF_1US_32BIT == 1)) && (GPT_PREDEF_100US_32BIT == 1))
-#define GPT_USE_PREDEF_TIMERS_USED_COUNT				(2)
-#elif ((GPT_PREDEF_1US_16BIT == 1) || (GPT_PREDEF_1US_24BIT == 1) || (GPT_PREDEF_1US_32BIT == 1) || (GPT_PREDEF_100US_32BIT == 1))
-#define GPT_USE_PREDEF_TIMERS_USED_COUNT				(1)
-#endif
-#else
-#define GPT_USE_PREDEF_TIMERS_USED_COUNT				(0)
-#endif
-
-#define GPT_USER_DEFINED_TIMERS							(4)
-#define Gpt_CFG_SIZE        							(GPT_USER_DEFINED_TIMERS + GPT_USE_PREDEF_TIMERS_USED_COUNT)
+#define USE_SYSTICK							(1)
 
 /**********************************************************************************************************************
  *  GLOBAL FUNCTION MACROS
@@ -48,13 +31,18 @@
 /**********************************************************************************************************************
  *  GLOBAL DATA PROTOTYPES
  *********************************************************************************************************************/
- 
+
+#if (1 == USE_SYSTICK)
+void SysTick_Handler(void);
+extern void Systick_Cbk(void);
+#endif
+
 /**********************************************************************************************************************
  *  GLOBAL FUNCTION PROTOTYPES
  *********************************************************************************************************************/
  
-#endif  /* _GPT_CFG_H */
+#endif  /* _SYSTICK_CFG_H */
 
 /**********************************************************************************************************************
- *  END OF FILE: Gpt_Cfg.h
+ *  END OF FILE: Systick_Cfg.h
  *********************************************************************************************************************/
