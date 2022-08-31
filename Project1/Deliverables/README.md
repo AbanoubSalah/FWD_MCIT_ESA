@@ -1,9 +1,9 @@
 # Required Deliverables
-* two images that shows
+## two images that shows
 - COTS Folder
 - Requirements Diagram.
 
-* YouTube Videos Links:
+## YouTube Videos Links:
 
 - GPIO driver
 https://youtu.be/91jALURDoCE
