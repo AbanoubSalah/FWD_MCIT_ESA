@@ -25,19 +25,18 @@
  *  GLOBAL DATA
  *********************************************************************************************************************/
 
+extern void Blink_Cbk(void);
+
 /* Defining used GPT channels as
  * {GptChannelid, GptChannelTickFrequency, GptChannelTickValueMax, GptChannelMode, GptNotiflcation} */
 const Gpt_ConfigType Gpt_Configuration[Gpt_CFG_SIZE] = {
-	{Gpt_Channel_Timer0, 16000000, 4294967295, GPT_CH_MODE_CONTINUOUS, timerCbk},
-	{Gpt_Channel_Timer1, 8000000, 65535, GPT_CH_MODE_ONESHOT, NULL_PTR},
-	{Gpt_Channel_WTimer0, 4000000, 255, GPT_CH_MODE_ONESHOT, NULL_PTR},
-	{Gpt_Channel_WTimer1, 2000000, 4294967295, GPT_CH_MODE_CONTINUOUS, NULL_PTR},
+	{Gpt_Channel_Timer0, 16000000, 4294967295, GPT_CH_MODE_CONTINUOUS, Blink_Cbk},
 #if	(GPT_USE_PREDEF_TIMERS == 1)
 #if	((GPT_PREDEF_1US_16BIT == 1) || (GPT_PREDEF_1US_24BIT == 1) || (GPT_PREDEF_1US_32BIT == 1))
-	{Gpt_Channel_WTimer4, 16000000, 4294967295, GPT_CH_MODE_CONTINUOUS, NULL_PTR},
+	{Gpt_Channel_WTimer4, 6000000, 4294967295, GPT_CH_MODE_CONTINUOUS, NULL_PTR},
 #endif
 #if (GPT_PREDEF_100US_32BIT == 1)
-	{Gpt_Channel_WTimer5, 16000000, 4294967295, GPT_CH_MODE_CONTINUOUS, NULL_PTR},
+	{Gpt_Channel_WTimer5, 6000000, 4294967295, GPT_CH_MODE_CONTINUOUS, NULL_PTR},
 #endif
 #endif
 };

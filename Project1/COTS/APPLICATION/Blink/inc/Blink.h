@@ -13,6 +13,7 @@
  * INCLUDES
  *********************************************************************************************************************/
 
+#include "Blink_Cfg.h"
 #include "IntCtrl.h"
 #include "Port.h"
 #include "Dio.h"
@@ -71,8 +72,40 @@ extern const Gpt_ConfigType Gpt_Configuration[];
  *  GLOBAL FUNCTION PROTOTYPES
  *********************************************************************************************************************/
 
+/******************************************************************************
+ * @brief Blink application call back function
+ *
+ * Stops the timer and calls Blink_Update function
+ *
+ * @param None
+ *
+ * @returns None
+ *******************************************************************************/
 void Blink_Cbk(void);
+
+/******************************************************************************
+ * @brief Initiates the blink application
+ *
+ * Initiates the interrupt controller 
+ * Initiates port and gpio if needed
+ * systick if needed
+ * Calls link_Update function
+ *
+ * @param None
+ *
+ * @returns None
+ *******************************************************************************/
 void Blink_Init(void);
+
+/******************************************************************************
+ * @brief Update the blink application status
+ *
+ * Starts the timer and sets the blink LED status function
+ *
+ * @param None
+ *
+ * @returns None
+ *******************************************************************************/
 void Blink_Update(void);
 
 #endif  /* _BLINK_H */

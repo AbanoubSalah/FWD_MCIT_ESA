@@ -34,7 +34,7 @@
 
 #if (1 == USE_SYSTICK)
 void SysTick_Handler(void);
-extern void Systick_Cbk(void);
+extern void Blink_Cbk(void);
 #endif
 
 /**********************************************************************************************************************

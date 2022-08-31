@@ -34,7 +34,7 @@
 #define GPT_USE_PREDEF_TIMERS_USED_COUNT				(0)
 #endif
 
-#define GPT_USER_DEFINED_TIMERS							(4)
+#define GPT_USER_DEFINED_TIMERS							(1)
 #define Gpt_CFG_SIZE        							(GPT_USER_DEFINED_TIMERS + GPT_USE_PREDEF_TIMERS_USED_COUNT)
 
 /**********************************************************************************************************************

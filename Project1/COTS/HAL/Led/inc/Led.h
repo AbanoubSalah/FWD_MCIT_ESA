@@ -13,6 +13,7 @@
  * INCLUDES
  *********************************************************************************************************************/
 
+#include "Led_Cfg.h"
 #include "Std_Types.h"
 
 /**********************************************************************************************************************
@@ -41,7 +42,28 @@ typedef enum
  *  GLOBAL FUNCTION PROTOTYPES
  *********************************************************************************************************************/
 
+/******************************************************************************
+ * @brief Turns on the LED
+ *
+ * Turns on the LED
+ *
+ * @param channel						Specified channel number
+ *
+ * @returns Led_Status					Led status Led_OK
+ *												   Led_NOT_OK
+ *******************************************************************************/
 Led_Status Led_On(uint32 channel);
+
+/******************************************************************************
+ * @brief Turns off the LED
+ *
+ * Turns off the LED
+ *
+ * @param channel						Specified channel number
+ *
+ * @returns Led_Status					Led status Led_OK
+ *												   Led_NOT_OK
+ *******************************************************************************/
 Led_Status Led_Off(uint32 channel);
 
 #endif  /* _LED_H */

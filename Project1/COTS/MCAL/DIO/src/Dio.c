@@ -46,16 +46,16 @@ static const uint32 portBase[] = {
  *  GLOBAL FUNCTIONS
  *********************************************************************************************************************/
 
-DIO_LevelType DIO_ReadChannel(DIO_ChannelType ChannelID)
+Dio_LevelType Dio_ReadChannel(Dio_ChannelType ChannelID)
 {
 	uint8 portNumber = ChannelID / 8;
     uint8 pinPosition = ChannelID % 8;
-    DIO_LevelType pinLevel;
+    Dio_LevelType pinLevel;
 
-    return (DIO_LevelType)GET_BITBAND_ALIAS_ADDRESS((portBase[portNumber] + GPIODATA_ALL_PINS_MASK_OFFSET), pinPosition);
+    return (Dio_LevelType)GET_BITBAND_ALIAS_ADDRESS((portBase[portNumber] + GPIODATA_ALL_PINS_MASK_OFFSET), pinPosition);
 }
 
-void DIO_WriteChannel(DIO_ChannelType ChannelID, DIO_LevelType Level)
+void Dio_WriteChannel(Dio_ChannelType ChannelID, Dio_LevelType Level)
 {
 	uint8 portNumber = ChannelID / 8;
     uint8 pinPosition = ChannelID % 8;
@@ -65,19 +65,19 @@ void DIO_WriteChannel(DIO_ChannelType ChannelID, DIO_LevelType Level)
 	return ;
 }
 
-DIO_PortLevelType DIO_ReadPort(DIO_PortType PortID)
+Dio_PortLevelType Dio_ReadPort(Dio_PortType PortID)
 {
-    return (DIO_PortLevelType)GET_ADDRESS_BASE_OFFSET(portBase[PortID], GPIODATA_ALL_PINS_MASK_OFFSET);
+    return (Dio_PortLevelType)GET_ADDRESS_BASE_OFFSET(portBase[PortID], GPIODATA_ALL_PINS_MASK_OFFSET);
 }
 
-void DIO_WritePort(DIO_PortType PortID, DIO_PortLevelType Level)
+void Dio_WritePort(Dio_PortType PortID, Dio_PortLevelType Level)
 {
 	GET_ADDRESS_BASE_OFFSET(portBase[PortID], GPIODATA_ALL_PINS_MASK_OFFSET) = Level;
 	
 	return ;
 }
 
-void DIO_FlipChannel(DIO_ChannelType ChannelID)
+void Dio_FlipChannel(Dio_ChannelType ChannelID)
 {
     uint8 portNumber = ChannelID / 8;
     uint8 pinPosition = ChannelID % 8;

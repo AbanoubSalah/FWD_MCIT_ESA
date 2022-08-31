@@ -43,8 +43,6 @@ void IntCtrl_init(void)
     uint8 interruptBitOffset, interruptRegister, loopIndex;
     sint16 curInterruptNumber;
     uint32 interruptPRIxAddress;
-	
-	//__asm("svc #0");
 
 /* Assigning bits to groups and subgroups */
 #if (configInterruptGroup == 8)
@@ -91,7 +89,7 @@ void IntCtrl_init(void)
 #endif /* configInterruptGroup */
 
     }
-    
+
     /* Configuring system exceptions */
     for(loopIndex = 0; loopIndex < INTCTRL_SYS_EXCEPTIONS_COUNT; ++loopIndex)
     {
@@ -144,7 +142,7 @@ void IntCtrl_init(void)
 #endif /* configInterruptGroup */
 
 				break;
-				
+
 			case INTCTRL_UsageFault:
 				SET_BIT((SYS_PERIPHERALS_BASE_ADDR + SYSHNDCTRL), BIT_18);
 				

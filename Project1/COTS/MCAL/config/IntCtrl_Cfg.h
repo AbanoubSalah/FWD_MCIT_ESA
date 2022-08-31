@@ -1,13 +1,10 @@
 /**********************************************************************************************************************
-
- *  FILE DESCRIPTION
- *  -------------------------------------------------------------------------------------------------------------------
  * @file IntCtrl_Cfg.h
  * @brief This is the interrupt control configuration file
  *
  * @author Abanoub Salah
  * @date August 10, 2022
- *********************************************************************************************************************/
+ * *******************************************************************************************************************/
 
 #ifndef _INTCTRL_CFG_H
 #define _INTCTRL_CFG_H
@@ -26,8 +23,8 @@
 #define configInterruptSubGroup					(8 - configInterruptGroup)
 
 /*  Number of configured system interrupts and MCU peripherals interrupts */
-#define INTCTRL_SYS_EXCEPTIONS_COUNT    		(7)
-#define INTCTRL_INTERRUPTS_COUNT        		(2)
+#define INTCTRL_SYS_EXCEPTIONS_COUNT    		(1)
+#define INTCTRL_INTERRUPTS_COUNT        		(1)
 
 /**********************************************************************************************************************
  *  GLOBAL FUNCTION MACROS

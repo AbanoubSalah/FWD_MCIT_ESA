@@ -78,7 +78,7 @@ typedef enum
     DIO_PF3,
     DIO_PF4,
 
-}DIO_ChannelType;
+}Dio_ChannelType;
 
 typedef enum
 {
@@ -88,15 +88,15 @@ typedef enum
     DIO_PORT_D,
     DIO_PORT_E,
     DIO_PORT_F,
-}DIO_PortType;
+}Dio_PortType;
 
 typedef enum
 {
     DIO_LEVEL_LOW,
     DIO_LEVEL_HIGH,
-}DIO_LevelType;
+}Dio_LevelType;
 
-typedef uint8 DIO_PortLevelType;
+typedef uint8 Dio_PortLevelType;
 
 /**********************************************************************************************************************
  *  GLOBAL DATA PROTOTYPES
