@@ -9,9 +9,8 @@
 /**********************************************************************************************************************
  *  INCLUDES
  *********************************************************************************************************************/
-
-#include "Std_Types.h"
 #include "Gpt.h"
+#include "Std_Types.h"
 
 /**********************************************************************************************************************
 *  LOCAL MACROS CONSTANT\FUNCTION
@@ -26,11 +25,11 @@
  *********************************************************************************************************************/
 
 extern void Blink_Cbk(void);
-
 /* Defining used GPT channels as
  * {GptChannelid, GptChannelTickFrequency, GptChannelTickValueMax, GptChannelMode, GptNotiflcation} */
 const Gpt_ConfigType Gpt_Configuration[Gpt_CFG_SIZE] = {
 	{Gpt_Channel_Timer0, 16000000, 4294967295, GPT_CH_MODE_CONTINUOUS, Blink_Cbk},
+	{Gpt_Channel_Timer1, 16000000, 4294967295, GPT_CH_MODE_ONESHOT, NULL_PTR},
 #if	(GPT_USE_PREDEF_TIMERS == 1)
 #if	((GPT_PREDEF_1US_16BIT == 1) || (GPT_PREDEF_1US_24BIT == 1) || (GPT_PREDEF_1US_32BIT == 1))
 	{Gpt_Channel_WTimer4, 6000000, 4294967295, GPT_CH_MODE_CONTINUOUS, NULL_PTR},

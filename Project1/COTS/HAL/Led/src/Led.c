@@ -44,7 +44,7 @@ Led_Status Led_On(uint32 channel)
 		return Led_NOT_OK;
 	}
 	
-	DIO_WriteChannel(channel, STD_HIGH);
+	Dio_WriteChannel(channel, STD_HIGH);
 	
 	return Led_OK;
 }
@@ -56,7 +56,7 @@ Led_Status Led_Off(uint32 channel)
 		return Led_NOT_OK;
 	}
 	
-	DIO_WriteChannel(channel, STD_LOW);
+	Dio_WriteChannel(channel, STD_LOW);
 	
 	return Led_OK;
 }

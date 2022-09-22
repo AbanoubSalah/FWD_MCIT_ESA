@@ -16,3 +16,6 @@ https://youtu.be/MJKZng8OJds
 
 - main.c Code
 https://youtu.be/Y2ghjFH_Jmg
+
+- Screen Recording during application running
+https://youtu.be/aJ0kZUHa0mE

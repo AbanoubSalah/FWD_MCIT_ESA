@@ -32,7 +32,7 @@
 #define PORT_PIN_MODE_ANALOG_COMP		(uint8)11
 #define PORT_PIN_MODE_CORE				(uint8)12
 
-#define PORT_PIN_CFG_SIZE        		(7)
+#define PORT_PIN_CFG_SIZE        		(3)
 
 /**********************************************************************************************************************
  *  GLOBAL FUNCTION MACROS
